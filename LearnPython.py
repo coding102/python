@@ -305,3 +305,188 @@ multiplication_table(5)
 
 multiplication_table(8)	
 # Should print: 8x1=8 8x2=16 8x3=24
+
+
+
+
+# Fill in the gaps of the sum_squares function, so that it returns the sum of all the squares of numbers between 
+# 0 and x (not included). Remember that you can use the range(x) function to generate a sequence of numbers
+# from 0 to x (not included).
+# %%
+def square(n):
+    return n*n
+
+def sum_squares(x):
+    sum = 0
+    for n in range(x):
+        sum += square(n)
+    return sum
+
+print(sum_squares(10)) # Should be 285
+
+
+
+
+# calculate total sum and average
+# %%
+values = [23, 52, 59, 37, 48]
+sum = 0
+length = 0
+for value in values:
+     sum += value
+     length += 1
+print("Total sum: " + str(sum) + " - Average: " + str(sum/length))
+
+
+
+# In math, the factorial of a number is defined as the product of an integer and all the integers below it.
+# For example, the factorial of four (4!) is equal to 1*2*3*4=24. Fill in the blanks to make the factorial 
+# function return the right number.
+# %%
+def factorial(n):
+    result = 1
+    for i in range(1,n+1):
+        result = result * i
+    return result
+
+print(factorial(4)) # should return 24
+print(factorial(5)) # should return 120
+
+
+
+
+# The function sum_positive_numbers should return the sum of all positive numbers between the number n received
+# and 1. For example, when n is 3 it should return 1+2+3=6, and when n is 5 it should return 1+2+3+4+5=15. Fill 
+# in the gaps to make this work:
+# %%
+#using recursion
+def sum_positive_numbers(n):
+  if n <= 1:
+      return n
+  return n + sum_positive_numbers(n-1)
+
+print(sum_positive_numbers(3)) # Should be 6
+print(sum_positive_numbers(5)) # Should be 15
+
+
+#using normal functions
+def sum_positive_numbers(n):
+  sums = 0
+  for v in range(1,n+1):
+    sums += v
+  return sums
+
+print(sum_positive_numbers(3)) # Should be 6
+print(sum_positive_numbers(5)) # Should be 15
+
+
+
+
+
+# Modify the double_word function so that it returns the same word repeated twice, followed by the length of 
+# the new doubled word. For example, double_word("hello") should return hellohello10.
+# %%
+def double_word(word):
+    return word * 2 + str(len(word * 2))
+
+print(double_word("hello")) # Should return hellohello10
+print(double_word("abc"))   # Should return abcabc6
+print(double_word(""))      # Should return 0
+
+
+
+# Want to give it a go yourself? Be my guest! Modify the first_and_last function so that it returns True 
+# if the first letter of the string is the same as the last letter of the string, False if they’re different. 
+# Remember that you can access characters using message[0] or message[-1].
+# Be careful how you handle the empty string, which should return True since nothing is equal to nothing.
+# %%
+def first_and_last(message):
+    if len(message) == 0:
+        return True
+    elif message[0] == message[-1]:
+        return True
+    else:
+        return False
+
+print(first_and_last("else"))
+print(first_and_last("tree"))
+print(first_and_last(""))
+
+
+# Write a program "function" that replaces an old domain with the new one in any outdated email addresses
+# %%
+def replace_domain(email, old_domain, new_domain): #3 parameters: email address to be checked, old domain, and new domain
+     if "@" + old_domain in email: # check if the concat of the @ and old domain are in the email address using "in"
+          index = email.index("@" + old_domain) # find index where old domain (including @ sign) starts
+          new_email = email[:index] + "@" + new_domain # use the index to create the new email
+          return new_email # return new email
+     return email # if the email didn't contain new domain just return it
+
+
+
+
+# Fill in the gaps in the initials function so that it returns the initials of the words contained 
+# in the phrase received, in upper case. For example: "Universal Serial Bus" should return "USB"; "local area network" 
+# should return "LAN”.     
+# %%
+def initials(phrase):
+    words = phrase.split()
+    result = ""
+    for word in words:
+        result += word[0].upper()
+    return result
+
+print(initials("Universal Serial Bus")) # Should be: USB
+print(initials("local area network")) # Should be: LAN
+print(initials("Operating system")) # Should be: OS
+
+
+
+
+
+
+# %%
+name = "Mark"
+number = len(name) * 3
+print("Hello {}, your lucky number is {}".format(name, number))
+print("Your lucky number is {number}, {name}.".format(name=name, number=len(name)*3))
+
+
+
+
+
+# Modify the student_grade function using the format method, so that it returns the phrase "X received Y% on the exam". For example, 
+# student_grade("Reed", 80) should return "Reed received 80% on the exam".
+# %%
+def student_grade(name, grade):
+	return "{name} received {grade}% on the exam".format(name=name, grade=grade)
+
+print(student_grade("Reed", 80))
+print(student_grade("Paige", 92))
+print(student_grade("Jesse", 85))
+
+
+
+
+
+# %%
+price = 7.5
+with_tax = price * 1.09
+print (price, with_tax)
+
+print("Base price: ${:.2f}. With Tax: ${:.2f}".format(price, with_tax))
+
+
+
+
+# %%
+def to_celsius(x):
+     return (x-32)*5/9
+for x in range(0,101,10):
+     print("{:>3} F | {:>6.2f} C".format(x, to_celsius(x))) #align to right 3 spaces, 2 decimal places and align to the right 6 spaces
+
+
+
+
+
+# %%
