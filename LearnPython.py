@@ -1,5 +1,8 @@
 # %%
 # Print String 5 times
+from audioop import mul
+
+
 for i in range(5) :
      print("This is fun")
 
@@ -578,3 +581,167 @@ print(replace_ending("The weather is nice in May", "may", "april"))
 # Should display "The weather is nice in May"
 print(replace_ending("The weather is nice in May", "May", "April")) 
 # Should display "The weather is nice in April"
+
+
+
+
+
+# Using the "split" string method from the preceding lesson, complete the get_word function to return the {n}th word from a passed sentence. For example, 
+# get_word("This is a lesson about lists", 4) should return "lesson", which is the 4th word in this sentence. Hint: remember that list indexes start at 0, not 1. 
+# %%
+def get_word(sentence, n):
+	# Only proceed if n is positive 
+	if n > 0:
+		words = sentence.split()
+		# Only proceed if n is not more than the number of words 
+		if n <= len(words):
+			return(words[n-1])
+	return("")
+
+print(get_word("This is a lesson about lists", 4)) # Should print: lesson
+print(get_word("This is a lesson about lists", -4)) # Nothing
+print(get_word("Now we are cooking!", 1)) # Should print: Now
+print(get_word("Now we are cooking!", 5)) # Nothing
+
+
+
+
+# The skip_elements function returns a list containing every other element from an input list, starting with the first element. Complete this function to do that, 
+# using the for loop to iterate through the input list.
+#%%
+def skip_elements(elements):
+	# Initialize variables
+	new_list = []
+	i = 0
+
+	# Iterate through the list
+	for element in elements:
+		# Does this element belong in the resulting list?
+		if i % 2 == 0:
+			# Add this element to the resulting list
+			new_list.append(element)
+		# Increment i
+		i+= 1
+
+	return new_list
+
+print(skip_elements(["a", "b", "c", "d", "e", "f", "g"])) # Should be ['a', 'c', 'e', 'g']
+print(skip_elements(['Orange', 'Pineapple', 'Strawberry', 'Kiwi', 'Peach'])) # Should be ['Orange', 'Strawberry', 'Peach']
+print(skip_elements([])) # Should be []
+
+
+
+
+
+
+# Let's use tuples to store information about a file: its name, its type and its size in bytes. Fill in the gaps in this code to return the size in kilobytes
+# (a kilobyte is 1024 bytes) up to 2 decimal places. 
+# %%
+def file_size(file_info):
+	name, tpe, size = file_info
+	return("{:.2f}".format(size / 1024))
+
+print(file_size(('Class Assignment', 'docx', 17875))) # Should print 17.46
+print(file_size(('Notes', 'txt', 496))) # Should print 0.48
+print(file_size(('Program', 'py', 1239))) # Should print 1.21
+
+
+
+
+
+
+# %%
+animals = ["Lion", "Zebra", "Dolphin", "Monkey"] # iterate over list of strings
+characters = 0
+for animal in animals: # for each string
+     characters += len(animal) # get length and add it to the total amount of characters
+
+print("Total characters: {}, Average length: {}".format(characters, characters/len(animals))) # print total and average by dividing total by the length of the list
+
+
+
+
+
+
+# Try out the enumerate function for yourself in this quick exercise. Complete the skip_elements function to return every other element from the list, this time 
+# using the enumerate function to check if an element is on an even position or an odd position.
+# %%
+def skip_elements(elements):
+	# code goes here
+	other_list = []
+	for index, word in enumerate(elements):
+		if index % 2 == 0:
+			other_list.append(word)
+	return other_list
+
+print(skip_elements(["a", "b", "c", "d", "e", "f", "g"])) # Should be ['a', 'c', 'e', 'g']
+print(skip_elements(['Orange', 'Pineapple', 'Strawberry', 'Kiwi', 'Peach'])) # Should be ['Orange', 'Strawberry', 'Peach']
+
+
+
+
+
+
+
+# write a function that creates a new list containing one string per person including name and email address example: Mark Smith <mark@example.com> 
+# %%
+def full_emails(people):
+     result = []
+     for email, name in people:
+          result.append("{} <{}>".format(name, email))
+     return result
+
+print (full_emails([("alex@example.com", "Alex Smith")]))
+
+
+
+
+
+
+
+# %%
+
+multiples = []
+for x in range(1,11):
+     multiples.append(x*7)
+print (multiples)
+
+# use list comprehension to accomplish the same task as above
+# %%
+multiples = [ x*7 for x in range(1,11)]
+print(multiples)
+
+
+
+
+
+# list of strings - generate list of lengths of strings
+# %%
+languages = ["Python", "Ruby", "Java", "Go"]
+lengths = [len(language) for language in languages]
+
+print(lengths)
+
+
+
+
+
+# print all numbers divisible by 3 between 0 and 100
+# %%
+z = [x for x in range(0,101) if x % 3 == 0]
+print (z)
+
+
+
+
+
+# The odd_numbers function returns a list of odd numbers between 1 and n, inclusively. Fill in the blanks in the function, using 
+# list comprehension. Hint: remember that list and range counters start at 0 and end at the limit minus 1.
+# %%
+def odd_numbers(n):
+	return [x for x in range(0,n+1) if x % 2 != 0]
+print(odd_numbers(5))  # Should print [1, 3, 5]
+print(odd_numbers(10)) # Should print [1, 3, 5, 7, 9]
+print(odd_numbers(11)) # Should print [1, 3, 5, 7, 9, 11]
+print(odd_numbers(1))  # Should print [1]
+print(odd_numbers(-1)) # Should print []
