@@ -1,6 +1,7 @@
 # %%
 # Print String 5 times
 from audioop import mul
+from itertools import count
 
 
 for i in range(5) :
@@ -745,3 +746,207 @@ print(odd_numbers(10)) # Should print [1, 3, 5, 7, 9]
 print(odd_numbers(11)) # Should print [1, 3, 5, 7, 9, 11]
 print(odd_numbers(1))  # Should print [1]
 print(odd_numbers(-1)) # Should print []
+
+
+
+
+
+
+# Given a list of filenames, we want to rename all the files with extension hpp to the extension h. To do this, we would like to generate 
+# a new list called newfilenames, consisting of the new filenames. Fill in the blanks in the code using any of the methods you’ve learned
+# thus far, like a for loop or a list comprehension.
+# %%
+filenames = ["program.c", "stdio.hpp", "sample.hpp", "a.out", "math.hpp", "hpp.out"]
+# Generate newfilenames as a list containing the new filenames
+# using as many lines of code as your chosen method requires.
+newfilenames = [filename.replace(".hpp",".h") for filename in filenames]
+
+print(newfilenames) 
+# Should be ["program.c", "stdio.h", "sample.h", "a.out", "math.h", "hpp.out"]
+
+
+
+
+
+# Let's create a function that turns text into pig latin: a simple text transformation that modifies each word moving the first character to 
+# the end and appending "ay" to the end. For example, python ends up as ythonpay.
+#%%
+def pig_latin(text):
+  say = ""
+  # Separate the text into words
+  words = text.split()
+  for word in words:
+    # Create the pig latin word and add it to the list
+    texts = word[1:] + word[0] + "ay" + " "
+    say += texts
+    # Turn the list back into a phrase
+  return say
+		
+print(pig_latin("hello how are you")) # Should be "ellohay owhay reaay ouyay"
+print(pig_latin("programming in python is fun")) # Should be "rogrammingpay niay ythonpay siay unfay"
+
+
+
+
+
+
+
+
+# The permissions of a file in a Linux system are split into three sets of three permissions: read, write, and execute for the owner, group, 
+# and others. Each of the three values can be expressed as an octal number summing each permission, with 4 corresponding to read, 2 to write, and 1 
+# to execute. Or it can be written with a string using the letters r, w, and x or - when the permission is not granted.
+# For example: 
+# 640 is read/write for the owner, read for the group, and no permissions for the others; converted to a string, it would be: "rw-r-----"
+# 755 is read/write/execute for the owner, and read/execute for group and others; converted to a string, it would be: "rwxr-xr-x"
+# Fill in the blanks to make the code convert a permission in octal format into a string format.
+# %%
+def octal_to_string(octal):
+    result = ""
+    value_letters = [(4,"r"),(2,"w"),(1,"x")]
+    # Iterate over each of the digits in octal
+    for digit in [int(n) for n in str(octal)]:
+        # Check for each of the permissions values
+        for value, letter in value_letters:
+            if digit >= value:
+                result += letter
+                digit -= value
+            else:
+                result += "-"
+    return result
+    
+print(octal_to_string(755)) # Should be rwxr-xr-x
+print(octal_to_string(644)) # Should be rw-r--r--
+print(octal_to_string(750)) # Should be rwxr-x---
+print(octal_to_string(600)) # Should be rw-------
+
+
+
+
+
+
+# The group_list function accepts a group name and a list of members, and returns a string with the format: group_name: member1, member2, … For example, 
+# group_list("g", ["a","b","c"]) returns "g: a, b, c". Fill in the gaps in this function to do that.
+#%%
+def group_list(group, users):
+  members = ', '.join(users)
+  return '{}: {}'.format(group,members)
+
+print(group_list("Marketing", ["Mike", "Karen", "Jake", "Tasha"])) # Should be "Marketing: Mike, Karen, Jake, Tasha"
+print(group_list("Engineering", ["Kim", "Jay", "Tom"])) # Should be "Engineering: Kim, Jay, Tom"
+print(group_list("Users", "")) # Should be "Users:"
+
+
+
+
+
+
+
+# The guest_list function reads in a list of tuples with the name, age, and profession of each party guest, and prints the sentence 
+# "Guest is X years old and works as __." for each one. For example, guest_list(('Ken', 30, "Chef"), ("Pat", 35, 'Lawyer'), ('Amanda', 25, "Engineer")) 
+# should print out: Ken is 30 years old and works as Chef. Pat is 35 years old and works as Lawyer. Amanda is 25 years old and works as Engineer. 
+# Fill in the gaps in this function to do that. 
+# %%
+def guest_list(guests):
+	for guest in guests:
+		name, age, job = guest
+		print("{} is {} years old and works as {}".format(name, age, job))
+
+guest_list([('Ken', 30, "Chef"), ("Pat", 35, 'Lawyer'), ('Amanda', 25, "Engineer")])
+
+#Click Run to submit code
+# Output should match:
+# Ken is 30 years old and works as Chef
+# Pat is 35 years old and works as Lawyer
+# Amanda is 25 years old and works as Engineer
+
+
+
+
+
+# Dictionary
+# %%
+file_counts = {"jpg":10, "txt":14, "csv":2, "py":23}
+print(file_counts)
+
+file_counts["txt"] # count how many txt files
+"jpeg" in file_counts # does the file jpg exist?
+file_counts["pdf"] = 10 # add file type and count, if file type already exist count is replaced
+print(file_counts)
+del file_counts["pdf"] # delete file type
+print(file_counts)
+
+
+
+
+
+# The "toc" dictionary represents the table of contents for a book. Fill in the blanks to do the following: 	1) Add an entry for Epilogue on page 39. 	
+# 2) Change the page number for Chapter 3 to 24. 	
+# 3) Display the new dictionary contents. 	
+# 4) Display True if there is Chapter 5, False if there isn't.
+# %%
+toc = {"Introduction":1, "Chapter 1":4, "Chapter 2":11, "Chapter 3":25, "Chapter 4":30}
+toc["Epilogue"] = 39 # Epilogue starts on page 39
+toc["Chapter 3"] = 24 # Chapter 3 now starts on page 24
+print(toc) # What are the current contents of the dictionary?
+print("Chapter 5" in toc) # Is there a Chapter 5?
+
+
+
+
+
+
+
+#ITERATING over dictionary content
+#%%
+file_counts = {"jpeg":10, "txt":20, "csv":30, "py":15}
+for extension in file_counts:
+     print(extension) # will only print key
+
+
+for ext, amount in file_counts.items(): #print key and value pair using the items() method, it will return a tuple for each element in the dictionary
+     print("There are {} files with the .{} extension".format(amount, ext))
+
+
+file_counts.keys() # return keys
+file_counts.values() # return values
+
+# Use items() to get both key and value
+# Use keys() to get keys
+# Use values() to get values
+
+for value in file_counts.values():
+     print(value)
+
+
+
+# Complete the code to iterate through the keys and values of the cool_beasts dictionary. Remember that the items method returns a tuple of key, value for each 
+# element in the dictionary.
+# %%
+cool_beasts = {"octopuses":"tentacles", "dolphins":"fins", "rhinos":"horns"}
+for animals, features in cool_beasts.items():
+    print("{} have {}".format(animals, features))
+
+
+
+
+
+
+
+# How times do letters appear in a piece of text?
+#%%
+def count_letters(text):
+     result = {} # initialize an empty dictionary
+     for letter in text: # go through each letter in the given string
+          if letter not in result: # for each letter check if it's already in the given string
+               result[letter] = 0 # if not in dictionary add it 
+          result[letter] += 1 # increment the count for that letter in the dictionary
+     return result
+count_letters("MarkM")
+
+
+
+
+
+
+
+# %%
