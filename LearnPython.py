@@ -1130,3 +1130,23 @@ print(fido.dog_years())
 # instance methods can take a parameter called self which represents the instance the method is being executed on. This will allow you to access attributes of the instance
 # using dot notation, like self.name, which will access the name attribute of that specific instance of the class object. When you have variables that contain different
 # values for different instances, these are called instance variables.
+
+
+# In this code, there's a Person class that has an attribute name, which gets set when constructing the object. Fill in the blanks so that 1) when an instance of
+# the class is created, the attribute gets set correctly, and 2) when the greeting() method is called, the greeting states the assigned name.
+# %%
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def greeting(self):
+        # Should return "hi, my name is " followed by the name of the Person.
+        return "hi, my name is " + self.name
+
+
+# Create a new instance with a name of your choice
+some_person = Person("Osborne")
+
+# Call the greeting method
+print(some_person.greeting())
+# %%
