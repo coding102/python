@@ -121,12 +121,12 @@ rectangle_area(5, 6)
 # %%
 # branching
 
-if condition1:
-    if-block
-elif condition2:
-    elif-block
-else:
-    else-block
+# if condition1:
+# if-block
+# elif condition2:
+# elif-block
+# else:
+# else-block
 
 
 # %%
