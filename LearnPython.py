@@ -1424,3 +1424,15 @@ def max_elevation_city(min_population):
 print(max_elevation_city(100000))  # Should print "Cusco, Peru"
 print(max_elevation_city(1000000))  # Should print "Sofia, Bulgaria"
 print(max_elevation_city(10000000))  # Should print ""
+
+
+# %%
+for num in range(1, 101):
+    if num % 15 == 0:
+        print("FizzBuzz")
+    elif num % 3 == 0:
+        print("Fizz")
+    elif num % 5 == 0:
+        print("Buzz")
+    else:
+        print(num)
